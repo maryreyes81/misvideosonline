@@ -5,17 +5,26 @@
   <title>Pro_Gol</title>
 </head>
 <body>
+
   <h1>Paso 1 - Usuario</h1>
 
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
 
-    <!-- ✅ Esto es lo que le faltaba a tu view -->
     <input type="hidden" name="confirm" value="si">
 
     <button type="submit">Aceptar</button>
   </form>
+
+  <hr>
+
+  <p>
+    <a href="/crud/usuarios/">👤 Ver lista de usuarios</a> |
+    <a href="/crud/videos/">🎬 Ver lista de videos</a>
+  </p>
+
 </body>
 </html>
+
 

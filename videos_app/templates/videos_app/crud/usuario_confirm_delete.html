@@ -12,6 +12,12 @@
     {% csrf_token %}
     <button type="submit">Sí, borrar</button>
     <a href="{% url 'usuario_list' %}">No, cancelar</a>
+
+<hr>
+<p>
+  <a href="{% url 'usuario_list' %}">👤 Volver a lista de usuarios</a> |
+  <a href="{% url 'paso1_usuario' %}">🏠 Inicio</a>
+</p>
   </form>
 </body>
 </html>

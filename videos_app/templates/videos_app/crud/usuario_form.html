@@ -10,8 +10,18 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+
     <button type="submit">Guardar</button>
     <a href="{% url 'usuario_list' %}">Cancelar</a>
   </form>
+
+  <hr>
+
+  <p>
+    <a href="{% url 'usuario_list' %}">👤 Volver a lista de usuarios</a> |
+    <a href="{% url 'usuariovideo_list' %}">🔗 Ver Usuario-Video</a> |
+    <a href="{% url 'paso1_usuario' %}">🏠 Inicio</a>
+  </p>
 </body>
 </html>
+
