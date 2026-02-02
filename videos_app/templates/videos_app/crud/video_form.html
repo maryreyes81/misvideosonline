@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Formulario Video</title>
+</head>
+<body>
+  <h1>{% if object %}Editar{% else %}Nuevo{% endif %} video</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    <a href="{% url 'video_list' %}">Cancelar</a>
+  </form>
+</body>
+</html>

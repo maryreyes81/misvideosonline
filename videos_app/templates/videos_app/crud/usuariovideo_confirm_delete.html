@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Borrar Relación</title>
+</head>
+<body>
+  <h1>¿Borrar relación?</h1>
+  <p>
+    Usuario: {{ object.usuario.nomina }} - {{ object.usuario.nombre }} <br>
+    Video: {{ object.video.nombre_video }}
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+    <a href="{% url 'usuariovideo_list' %}">No, cancelar</a>
+  </form>
+</body>
+</html>

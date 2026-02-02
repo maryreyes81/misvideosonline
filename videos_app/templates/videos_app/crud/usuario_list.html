@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CRUD Usuarios</title>
+</head>
+<body>
+  <h1>Usuarios (CRUD)</h1>
+
+  <p>
+    <a href="{% url 'usuario_create' %}">➕ Nuevo usuario</a> |
+    <a href="{% url 'usuariovideo_list' %}">🔗 Ver Usuario-Video</a> |
+    <a href="{% url 'paso1_usuario' %}">⬅ Volver al flujo</a>
+  </p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nómina</th>
+        <th>Nombre</th>
+        <th>Total videos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in usuarios %}
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.nomina }}</td>
+        <td>{{ u.nombre }}</td>
+        <td>{{ u.total_videos }}</td>
+        <td>
+          <a href="{% url 'usuario_update' u.id %}">✏ Editar</a> |
+          <a href="{% url 'usuario_delete' u.id %}">🗑 Borrar</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="5">No hay usuarios.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

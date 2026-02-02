@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CRUD Videos</title>
+</head>
+<body>
+  <h1>Videos (CRUD)</h1>
+
+  <p>
+    <a href="{% url 'video_create' %}">➕ Nuevo video</a> |
+    <a href="{% url 'paso1_usuario' %}">⬅ Volver al flujo</a>
+  </p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Extensión</th>
+        <th>Tamaño (MB)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for v in videos %}
+        <tr>
+          <td>{{ v.id }}</td>
+          <td>{{ v.nombre_video }}</td>
+          <td>{{ v.extension }}</td>
+          <td>{{ v.tamano }}</td>
+          <td>
+            <a href="{% url 'video_update' v.id %}">✏ Editar</a>
+            |
+            <a href="{% url 'video_delete' v.id %}">🗑 Borrar</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">No hay videos.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

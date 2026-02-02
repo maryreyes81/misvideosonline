@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CRUD Usuario-Video</title>
+</head>
+<body>
+  <h1>Relación Usuario - Video</h1>
+
+  <p>
+    <a href="{% url 'usuariovideo_create' %}">➕ Nueva relación</a> |
+    <a href="{% url 'usuario_list' %}">👤 Ver usuarios</a> |
+    <a href="{% url 'video_list' %}">🎬 Ver videos</a>
+  </p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nómina</th>
+        <th>Usuario</th>
+        <th>Video</th>
+        <th>Extensión</th>
+        <th>Tamaño (MB)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in relaciones %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.usuario.nomina }}</td>
+        <td>{{ r.usuario.nombre }}</td>
+        <td>{{ r.video.nombre_video }}</td>
+        <td>{{ r.video.extension }}</td>
+        <td>{{ r.video.tamano }}</td>
+        <td>
+          <a href="{% url 'usuariovideo_update' r.id %}">✏ Editar</a> |
+          <a href="{% url 'usuariovideo_delete' r.id %}">🗑 Borrar</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="7">No hay relaciones.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

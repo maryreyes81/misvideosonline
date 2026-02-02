@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pro_Gol</title>
+</head>
+<body>
+  <h1>Paso 1 - Usuario</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <!-- ✅ Esto es lo que le faltaba a tu view -->
+    <input type="hidden" name="confirm" value="si">
+
+    <button type="submit">Aceptar</button>
+  </form>
+</body>
+</html>
+

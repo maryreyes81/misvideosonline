@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Borrar Usuario</title>
+</head>
+<body>
+  <h1>¿Borrar usuario?</h1>
+  <p>ID: {{ object.id }} | Nómina: {{ object.nomina }} | Nombre: {{ object.nombre }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+    <a href="{% url 'usuario_list' %}">No, cancelar</a>
+  </form>
+</body>
+</html>

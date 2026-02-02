@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Borrar Video</title>
+</head>
+<body>
+  <h1>¿Borrar video?</h1>
+
+  <p>ID: {{ object.id }} | Nombre: {{ object.nombre_video }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+    <a href="{% url 'video_list' %}">No, cancelar</a>
+  </form>
+</body>
+</html>

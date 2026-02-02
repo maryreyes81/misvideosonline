@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Paso 2</title>
+</head>
+<body>
+  <h1>Paso 2 - Videos</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {% for f in formset %}
+      {{ f.as_p }}
+    {% endfor %}
+    <button type="submit">Guardar</button>
+  </form>
+
+</body>
+</html>
